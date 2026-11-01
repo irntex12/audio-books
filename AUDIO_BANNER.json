@@ -1,0 +1,21 @@
+{
+    "enabled": true,
+    "interval": 6,
+    "books": [
+        {
+            "title": "Le pouvoir de la patience",
+            "cover": "https://example.com/couverture1.jpg",
+            "url": "https://example.com/livre1.mp3"
+        },
+        {
+            "title": "Les secrets de la réussite",
+            "cover": "https://example.com/couverture2.jpg",
+            "url": "https://example.com/livre2.mp3"
+        },
+        {
+            "title": "L'art de la connaissance",
+            "cover": "https://example.com/couverture3.jpg",
+            "url": "https://example.com/livre3.mp3"
+        }
+    ]
+}
