@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Découvrez une sélection de livres audio et accédez à leur écoute.">
+  <title>Bibliothèque de livres audio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1020;
+      --panel: #151d31;
+      --panel-2: #1d2942;
+      --text: #f8fafc;
+      --muted: #aab6cc;
+      --accent: #f5b942;
+      --accent-text: #1b1b1b;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 16px 40px rgba(0,0,0,.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(ellipse at top left, rgba(50,83,150,.30), transparent 45%),
+        var(--bg);
+      color: var(--text);
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 24px 0 18px; border-bottom: 1px solid var(--border); }
+    .topline { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark {
+      width:44px; height:44px; flex:0 0 44px; display:grid; place-items:center;
+      border-radius:14px; background:linear-gradient(135deg,#f5b942,#ffdf88);
+      color:#171717; font-size:23px; font-weight:900;
+    }
+    .brand-name { margin:0; font-size:clamp(18px,3vw,24px); font-weight:800; letter-spacing:.2px; }
+    .brand-sub { margin:3px 0 0; color:var(--muted); font-size:13px; }
+    .header-link { text-decoration:none; color:var(--muted); font-size:14px; }
+    .hero { padding:44px 0 28px; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:2px; font-size:11px; font-weight:800; }
+    h1 { margin:10px 0 10px; font-size:clamp(30px,6vw,48px); line-height:1.08; letter-spacing:-1.3px; }
+    .hero p { max-width:680px; color:var(--muted); line-height:1.65; margin:0; }
+    .toolbar { display:flex; gap:12px; align-items:center; justify-content:space-between; margin:18px 0 22px; flex-wrap:wrap; }
+    .search {
+      width:min(100%,390px); border:1px solid var(--border); border-radius:12px;
+      padding:12px 14px; background:var(--panel); color:var(--text); font:inherit; outline:none;
+    }
+    .search:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(245,185,66,.13); }
+    .count { color:var(--muted); font-size:13px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; padding-bottom:48px; }
+    .book {
+      overflow:hidden; border:1px solid var(--border); border-radius:18px;
+      background:linear-gradient(180deg,var(--panel),#11182a); box-shadow:var(--shadow);
+      display:flex; flex-direction:column; min-width:0;
+    }
+    .cover-wrap { aspect-ratio:1 / 1; background:var(--panel-2); overflow:hidden; }
+    .cover { width:100%; height:100%; display:block; object-fit:cover; }
+    .book-body { padding:15px; display:flex; flex-direction:column; flex:1; }
+    .book-title { font-size:17px; line-height:1.35; margin:0 0 6px; font-weight:750; }
+    .book-author { margin:0 0 12px; color:var(--muted); font-size:13px; }
+    .book-description { color:#d4dbea; font-size:13px; line-height:1.55; margin:0 0 16px; }
+    .actions { margin-top:auto; display:flex; gap:9px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; text-align:center;
+      min-height:42px; padding:10px 13px; border-radius:11px; text-decoration:none;
+      font-size:13px; font-weight:800; transition:transform .15s ease, filter .15s ease;
+    }
+    .btn:hover { transform:translateY(-1px); filter:brightness(1.05); }
+    .btn-primary { flex:1; background:var(--accent); color:var(--accent-text); }
+    .btn-secondary { border:1px solid var(--border); color:var(--text); background:transparent; }
+    .empty {
+      grid-column:1/-1; text-align:center; color:var(--muted);
+      padding:36px 16px; border:1px dashed var(--border); border-radius:16px;
+    }
+    .notice { color:var(--muted); font-size:12px; line-height:1.6; padding:0 0 26px; }
+    footer { border-top:1px solid var(--border); padding:20px 0 30px; color:var(--muted); font-size:12px; }
+    footer .foot { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    @media (max-width:520px) {
+      .container { width:min(100% - 24px,1120px); }
+      .hero { padding-top:32px; }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; }
+      .book { border-radius:14px; }
+      .book-body { padding:11px; }
+      .book-title { font-size:14px; }
+      .book-description { font-size:12px; }
+      .actions { flex-direction:column; }
+      .btn { width:100%; }
+      .brand-sub { font-size:11px; }
+    }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none !important; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topline">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">♫</div>
+        <div>
+          <p class="brand-name">Ma bibliothèque audio</p>
+          <p class="brand-sub">Des histoires et des idées à écouter</p>
+        </div>
+      </div>
+      <a class="header-link" href="#bibliotheque">Explorer les livres ↓</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">Bibliothèque audio</div>
+      <h1>Écoutez des livres,<br>où que vous soyez.</h1>
+      <p>Parcourez la sélection, découvrez les résumés et ouvrez la page de chaque livre pour accéder à son écoute.</p>
+    </section>
+
+    <section id="bibliotheque" aria-label="Bibliothèque de livres audio">
+      <div class="toolbar">
+        <input id="search" class="search" type="search" placeholder="Rechercher un livre ou un auteur…" aria-label="Rechercher un livre ou un auteur">
+        <span id="count" class="count" aria-live="polite">Chargement des livres…</span>
+      </div>
+      <div id="books" class="grid">
+        <div class="empty">Chargement de la bibliothèque…</div>
+      </div>
+      <p class="notice">Les couvertures et les informations des livres sont chargées depuis le fichier <code>AUDIO_BANNER.json</code>. Le bouton d’accès ouvre le lien fourni pour chaque livre.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>© <span id="year"></span> Ma bibliothèque audio</span>
+      <span>Une sélection de livres audio</span>
+    </div>
+  </footer>
+
+  <script>
+    // Le fichier JSON doit se trouver à la racine du même dépôt GitHub Pages.
+    const CONFIG_URL = "./AUDIO_BANNER.json";
+
+    const booksContainer = document.getElementById("books");
+    const searchInput = document.getElementById("search");
+    const countLabel = document.getElementById("count");
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    let allBooks = [];
+
+    function safeHttpUrl(value) {
+      try {
+        const url = new URL(value, window.location.href);
+        return (url.protocol === "https:" || url.protocol === "http:") ? url.href : "";
+      } catch (_) {
+        return "";
+      }
+    }
+
+    function makeBookCard(book) {
+      const card = document.createElement("article");
+      card.className = "book";
+
+      const coverWrap = document.createElement("div");
+      coverWrap.className = "cover-wrap";
+
+      const cover = document.createElement("img");
+      cover.className = "cover";
+      cover.loading = "lazy";
+      cover.alt = "Couverture du livre " + book.title;
+      cover.src = safeHttpUrl(book.cover) || "";
+      cover.onerror = () => {
+        cover.removeAttribute("src");
+        cover.alt = "Couverture non disponible";
+        cover.style.display = "none";
+        coverWrap.textContent = "Couverture indisponible";
+        coverWrap.style.display = "grid";
+        coverWrap.style.placeItems = "center";
+        coverWrap.style.color = "#aab6cc";
+        coverWrap.style.fontSize = "13px";
+      };
+      coverWrap.appendChild(cover);
+
+      const body = document.createElement("div");
+      body.className = "book-body";
+
+      const title = document.createElement("h2");
+      title.className = "book-title";
+      title.textContent = book.title || "Livre audio";
+
+      const author = document.createElement("p");
+      author.className = "book-author";
+      author.textContent = book.author ? "Par " + book.author : "";
+
+      const description = document.createElement("p");
+      description.className = "book-description";
+      description.textContent = book.description || "Découvrez ce livre audio et ses informations.";
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+
+      const link = safeHttpUrl(book.url);
+      const button = document.createElement("a");
+      button.className = "btn btn-primary";
+      button.textContent = book.buttonText || "Découvrir / écouter";
+      if (link) {
+        button.href = link;
+        button.target = "_blank";
+        button.rel = "noopener noreferrer";
+      } else {
+        button.href = "#";
+        button.setAttribute("aria-disabled", "true");
+        button.style.opacity = ".5";
+        button.addEventListener("click", event => event.preventDefault());
+      }
+
+      actions.appendChild(button);
+      body.append(title, author, description, actions);
+      card.append(coverWrap, body);
+      return card;
+    }
+
+    function renderBooks(query = "") {
+      const normalized = query.trim().toLocaleLowerCase("fr");
+      const filtered = allBooks.filter(book => {
+        const searchable = [book.title, book.author, book.description]
+          .filter(Boolean).join(" ").toLocaleLowerCase("fr");
+        return searchable.includes(normalized);
+      });
+
+      booksContainer.replaceChildren();
+      if (!filtered.length) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = allBooks.length ? "Aucun livre ne correspond à votre recherche." : "Aucun livre n’est disponible pour le moment.";
+        booksContainer.appendChild(empty);
+      } else {
+        filtered.forEach(book => booksContainer.appendChild(makeBookCard(book)));
+      }
+      countLabel.textContent = filtered.length + (filtered.length > 1 ? " livres" : " livre");
+    }
+
+    async function loadBooks() {
+      try {
+        const response = await fetch(CONFIG_URL + "?v=" + Date.now(), { cache: "no-store" });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const config = await response.json();
+        if (!config || !Array.isArray(config.books)) {
+          throw new Error("Le JSON doit contenir une liste 'books'.");
+        }
+        allBooks = config.books.filter(book =>
+          book && typeof book === "object" &&
+          typeof book.title === "string" &&
+          typeof book.cover === "string" &&
+          typeof book.url === "string"
+        );
+        renderBooks(searchInput.value);
+      } catch (error) {
+        console.error("Impossible de charger AUDIO_BANNER.json :", error);
+        booksContainer.replaceChildren();
+        const message = document.createElement("div");
+        message.className = "empty";
+        message.textContent = "La bibliothèque n’a pas pu être chargée. Vérifiez que AUDIO_BANNER.json est publié à côté de cette page.";
+        booksContainer.appendChild(message);
+        countLabel.textContent = "Chargement impossible";
+      }
+    }
+
+    searchInput.addEventListener("input", () => renderBooks(searchInput.value));
+    loadBooks();
+  </script>
+</body>
+</html>
