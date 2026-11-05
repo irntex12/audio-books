@@ -14,7 +14,7 @@
         },
         {
             "title": "L'art de la connaissance",
-            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/L'art de la connaissance.jpg",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/L'art%20de%20la%20connaissance.jpg",
             "url": "https://example.com/livre3.mp3"
         }
     ]
