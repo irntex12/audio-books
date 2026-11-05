@@ -4,7 +4,7 @@
     "books": [
         {
             "title": "Le pouvoir de la patience",
-            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/Le pouvoir de la patience.jpg",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/Le%20pouvoir%20de%20la%20patience.jpg",
             "url": "https://example.com/livre1.mp3"
         },
         {
