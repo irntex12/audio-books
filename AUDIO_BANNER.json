@@ -4,17 +4,17 @@
     "books": [
         {
             "title": "Le pouvoir de la patience",
-            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/Le%20pouvoir%20de%20la%20patience.jpg",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/image3.jpg",
             "url": "https://example.com/livre1.mp3"
         },
         {
             "title": "Les secrets de la réussite",
-            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/Les%20secrets%20de%20la%20réussite.jpg",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/image2.jpg",
             "url": "https://example.com/livre2.mp3"
         },
         {
             "title": "L'art de la connaissance",
-            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/L'art%20de%20la%20connaissance.jpg",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/image1.jpg",
             "url": "https://example.com/livre3.mp3"
         }
     ]
