@@ -8,14 +8,24 @@
             "url": "https://link.amazon/B02GoTyRc"
         },
         {
-            "title": "Les secrets de la réussite",
-            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/image2.jpg",
-            "url": "https://example.com/livre2.mp3"
+            "title": "Morsures, Une paisible station balnéaire bretonne. MORDRE. Un grand requin blanc qui sème la panique. MORSURE. Des ados fascinés par un vieux grimoire ésotérique",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/Morsures.jpg",
+            "url": "https://link.amazon/B0iCsKCv6"
         },
         {
-            "title": "L'art de la connaissance",
-            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/image1.jpg",
-            "url": "https://example.com/livre3.mp3"
+            "title": "The Sons of Death - tome 4. Il pensait qu’elle était morte. Il avait tort. Huit cent quatre-vingt-huit jours. C’est le temps qu’il a fallu à Taylor Blake, nouveau président des Sons of Death, pour apprendre à survivre à l’absence de Maxine. Huit cent quatre-vingt-huit jours à veiller sur leur fils, bâtir un empire et déposer des fleurs sur une tombe froide. Huit...",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/TheSonsofDeathtome4.jpg",
+            "url": "https://link.amazon/B071GC0gS"
+        },
+        {
+            "title": "Dracula. Pendant des siècles, Dracula a échappé à la capture. Jusqu'à ce que Mina Harker entre en scène. Audible présente Dracula, une toute nouvelle adaptation du chef-d'œuvre de Bram Stoker avec Omar Sy et Deva Cassel. Lorsque son fiancé disparaît en Transylvanie, Mina rassemble...",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/Dracula.jpg",
+            "url": "https://link.amazon/B08aZ0EgD"
+        },
+        {
+            "title": "Harry Potter à l'École des Sorciers. Orphelin, Harry Potter est élevé par un oncle et une tante qui ne l'aiment pas. Le jour de ses 11 ans, son existence bascule : un géant l'emmène à Poudlard, l'école de sorcellerie ! Voilà son incroyable destin : être...",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/HarryPotteralecoledesSorciersHarryPotter1.jpg",
+            "url": "https://link.amazon/B0bs370Ci"
         }
     ]
 }
