@@ -65,7 +65,7 @@
     .book-title { font-size:17px; line-height:1.35; margin:0 0 6px; font-weight:750; }
     .book-author { margin:0 0 12px; color:var(--muted); font-size:13px; }
     .book-description { color:#d4dbea; font-size:13px; line-height:1.55; margin:0 0 16px; }
-    .actions { margin-top:auto; display:flex; gap:9px; }
+    .actions { margin-top:auto; display:flex; flex-direction:column; gap:9px; }
     .btn {
       display:inline-flex; align-items:center; justify-content:center; text-align:center;
       min-height:42px; padding:10px 13px; border-radius:11px; text-decoration:none;
@@ -74,13 +74,21 @@
     .btn:hover { transform:translateY(-1px); filter:brightness(1.05); }
     .btn-primary { flex:1; background:var(--accent); color:var(--accent-text); }
     .btn-secondary { border:1px solid var(--border); color:var(--text); background:transparent; }
+    .affiliate-disclosure {
+      font-size:11px; color:var(--muted); margin:6px 0 0; line-height:1.4; text-align:center;
+    }
     .empty {
       grid-column:1/-1; text-align:center; color:var(--muted);
       padding:36px 16px; border:1px dashed var(--border); border-radius:16px;
     }
     .notice { color:var(--muted); font-size:12px; line-height:1.6; padding:0 0 26px; }
     footer { border-top:1px solid var(--border); padding:20px 0 30px; color:var(--muted); font-size:12px; }
-    footer .foot { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    footer .foot { display:flex; flex-direction:column; gap:10px; }
+    .footer-top { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .affiliate-footer {
+      font-size:12px; color:var(--muted); line-height:1.5; padding-top:6px;
+      border-top:1px solid var(--border); margin-top:6px;
+    }
     @media (max-width:520px) {
       .container { width:min(100% - 24px,1120px); }
       .hero { padding-top:32px; }
@@ -131,8 +139,13 @@
 
   <footer>
     <div class="container foot">
-      <span>© <span id="year"></span> Ma bibliothèque audio</span>
-      <span>Une sélection de livres audio</span>
+      <div class="footer-top">
+        <span>© <span id="year"></span> Ma bibliothèque audio</span>
+        <span>Une sélection de livres audio</span>
+      </div>
+      <p class="affiliate-footer">
+        En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
+      </p>
     </div>
   </footer>
 
@@ -213,7 +226,13 @@
         button.addEventListener("click", event => event.preventDefault());
       }
 
+      // Mention de divulgation au niveau du lien (exigence Amazon)
+      const disclosure = document.createElement("p");
+      disclosure.className = "affiliate-disclosure";
+      disclosure.textContent = "(lien rémunéré par Amazon)";
+
       actions.appendChild(button);
+      actions.appendChild(disclosure);
       body.append(title, author, description, actions);
       card.append(coverWrap, body);
       return card;
