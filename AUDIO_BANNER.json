@@ -3,9 +3,9 @@
     "interval": 6,
     "books": [
         {
-            "title": "Le pouvoir de la patience",
-            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/image3.jpg",
-            "url": "https://example.com/livre1.mp3"
+            "title": "Le Casse du siècle. Ils vous ont tout volé. Ils ont tout détruit. Et ils tiennent tout le système. Ils ont réussi le casse du siècle. Sarah Knafo s'est lancée sur leurs traces. Elle a réuni tous les indices, toutes les preuves, l'identité de tous les coupables, l'organigramme de toute leur organisation.",
+            "cover": "https://raw.githubusercontent.com/irntex12/audio-books/main/images/LeCassedusiecle.jpg",
+            "url": "https://link.amazon/B02GoTyRc"
         },
         {
             "title": "Les secrets de la réussite",
